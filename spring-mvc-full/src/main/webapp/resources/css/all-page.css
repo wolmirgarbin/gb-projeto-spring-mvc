@@ -1,0 +1,207 @@
+/* ESTILOS PADR’ES */
+body { font: 11px arial; margin: 0px; padding: 0px; color: #444; overflow-y: scroll; }
+
+
+.bt { background: url("../img/fundo/preto-transparente.png") repeat; }
+.radius-2 { -moz-border-radius: 2px; /* Para Firefox */ -webkit-border-radius: 2px; /*Para Safari e Chrome */ border-radius: 2px; /* Para Opera 10.5+*/ }
+.shadow { box-shadow: 1px 1px 7px rgba(255, 255, 255, 0.4); }
+
+
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: block/* inline-block */; }
+.fr { float: right; }
+.fl { float: left; }
+html[xmlns] .clearfix { display: block; }
+a { text-decoration: none; color: #0066FF; }
+a:hover { text-decoration: underline; }
+p { margin: 2px 0px; }
+img { border: none; }
+
+
+/* PARA FORMUL¡RIO */
+input[type='text'], input[type='password'] { 
+	border: 1px solid #CCC; color: #333; padding: 7px; width: 210px; 
+	-moz-border-radius: 2px; /* Para Firefox */ -webkit-border-radius: 2px; /*Para Safari e Chrome */ border-radius: 2px; /* Para Opera 10.5+*/	
+}
+input[type='text']:focus, , input[type='password']:focus { box-shadow: 1px 1px 7px rgba(255, 255, 255, 0.4); }
+/* button { cursor: pointer; padding: 8px; color: #666; } */
+button { 
+	/* background-color: #F4F4F4; */
+	background-color: #6D9F43; 
+	background-image: none;
+    -moz-border-radius: 4px; /* Para Firefox */ -webkit-border-radius: 4px; /*Para Safari e Chrome */ border-radius: 4px; /* Para Opera 10.5+*/
+    border-style: solid;
+    border-width: 1px;
+    border-color: #618D3B;
+    padding: 9px 10px;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+/* button:hover { color: #333; } */
+button:hover { 
+	background-color: #7CCB4D;
+	
+	background-image: linear-gradient(center top, #84B857, #72A646);
+	background-image: -o-linear-gradient(center top, #84B857, #72A646);
+	background-image: -moz-linear-gradient(center top, #84B857, #72A646);
+	background-image: -webkit-linear-gradient(center top, #84B857, #72A646);
+	background-image: -ms-linear-gradient(center top, #84B857, #72A646);
+	background-image: -webkit-gradient(
+		linear,
+		center top,
+		center top,
+		color-stop(1, #84B857),
+		color-stop(1, #72A646)
+	);
+}
+button .ui-icon { height: 14px; }
+.field, .actions { padding: 5px 0px; }
+.field.blank input[type='text'], .field.blank input[type='password'] { border-color: #FFF; }
+.field input[type='text'].date { width: 90px; }
+.field label { display: inline-block; text-align: right; width: 120px; padding-right: 10px; }
+.field .erros { color: #990000; display: block; margin: 5px 0px 5px 135px; }
+.field img { margin-left: 4px; cursor: pointer; margin-right: 20px; }
+
+.field input.g-xmaior { width: 400px; }
+.field input.g-maior { width: 240px; }
+.field input.g-menor { width: 80px; }
+
+
+/* ESTRUTURA */
+.tudo { width: 100%; }
+.container { width: 980px; position: relative; margin: 0px auto; }
+
+
+/* TOPO */
+.topo-site { background: #367B09 url("../img/folha-agro.png") top center no-repeat; width: 100%; height: 474px; position: relative; }
+.top-sup-container { width: 100%; height: 120px; }
+.top-inf-container { width: 100%; height: 215px; position: absolute; bottom: 0px; }
+.top-inf-container .separador { border-bottom: 1px solid #FFFFFF; width: 100%; padding-bottom: 20px; }
+.top-sup-logo-cliente { float: left; width: 400px; height: 70px; margin-top: 50px; }
+.top-sup-logo-cliente a { color: #FFFFFF; font-size: 50px; font-weight: bold; text-decoration: none; }
+.top-sup-logo-cliente img { border: 0px; }
+.top-sup-login { width: 340px; height: 120px; background: #367B09; position: absolute; right: 0px; padding: 20px; }
+.top-sup-login span { display: block; color: inherit; font-weight: bold; font-size: 70px; color: #FFF; }
+.top-sup-login b { display: block; color: inherit; font-weight: bold; font-size: 16px; color: #FFF; }
+/* TOPO MINIFICADO DA MINHA AREA */
+.topo-site.min { height: 90px; }
+.topo-site.min .top-sup-logo-cliente { width: 150px; height: 70px; margin-top: 10px; }
+.topo-site.min .top-sup-logo-cliente img { max-width: 150px; max-height: 60px; border: none; }
+
+
+/* PASSOS DA CAPA */
+.download-direto { padding-bottom: 10px; border-bottom: 1px solid #CCC; height: 135px; }
+.download-direto .titulo { color: #333333; font-size: 14px; font-weight: bold; margin: 20px 0 26px; }
+.download-direto .titulo .line-compl { background: #F0F0F0; float: right; height: 1px; margin-top: 10px; width: 726px; }
+
+.passos-capa { float: left; width: 400px; margin-right: 10px; color: #367B09; }
+.passos-capa.u { margin-right: 0px; width: 160px; }
+.passos-capa .separador { border-color: #367B09; margin: 10px 0px; padding: 0px; }
+.passos-capa .etapas { display: block; font-size: 11px; }
+.passos-capa .field { background: #FFF; height: 32px; padding: 8px 0px; }
+.passos-capa .field .input-codigo { padding: 10px 3px; width: 330px; }
+.passos-capa .field .input-captcha { margin-right: 6px; width: 152px; padding: 10px 3px; }
+.passos-capa .field img { float: left; background: #E0E0E0; }
+.passos-capa.u .field { background: transparent; height: auto; }
+
+
+/* BARRA CAPA */
+.logo-agro { position: absolute; top: 80px; height: 80px; width: 200px; }
+.cai-label { color: #FFFFFF; display: inline-block; font-size: 13px; margin: 10px 0; }
+.caixa-login { float: left; margin-left: 234px; width: 320px; margin-top: 22px; }
+.separa-caixas { color: #FFF; float: left; text-align: center; width: 60px; padding-top: 80px; }
+.caixa-primeiro-ac { float: left; width: 365px; margin-top: 22px; }
+.amarelo input[type='text'], .amarelo input[type='password'] { background-color: #FAFFBD; }
+
+
+
+/* MENSAGENS DE VALIDA«„O */
+.validator { width: 100%; position: absolute; z-index: 100; display: none; top: 10px;  height: 1px; }
+.validator .container { height: 1px; }
+.validatorMessage { color: #FFFFFF; z-index: 100; width: 480px; padding: 20px; margin: 0px auto; }
+.validatorMessage .mes-title { background: url("../img/restricao/dialog-warning.png") left center no-repeat; font-size: 20px; font-weight: bold; margin-bottom: 15px; padding: 10px 0 10px 60px; width: 200px; }
+.validatorMessage .mes-title.sucesso { background: url("../img/restricao/dialog-sucesso.png") left center no-repeat; }
+.validatorMessage span { display: block; line-height: 20px; }
+
+
+
+/* MENU */
+.cont-menu { border-bottom: 1px solid #E0E0E0; height: 71px; margin-top: 1px; }
+.cont-menu .m-item { width: 120px; height: 12px; float: left; text-align: center; padding: 10px; border: 1px solid #CCC; background: #E0E0E0; display: block; background-position: center 10px; background-repeat: no-repeat; padding-top: 48px; color: #333333; }
+.cont-menu .m-item.active { background-color: #FFFFFF; border-bottom: 1px solid #FFFFFF; color: #CCCCCC; }
+.cont-menu .m-item.active:hover { cursor: default; text-decoration: none; } 
+.cont-menu .m-item.chave { background-image: url("../img/menu/chave.png"); }
+.cont-menu .m-item.recebidos { background-image: url("../img/menu/recebidos.png"); }
+.cont-menu .m-item.enviados { background-image: url("../img/menu/enviados.png"); }
+.cont-menu .m-item.usuarios { background-image: url("../img/menu/usuarios.png"); }
+.cont-menu .m-item.configuracao { background-image: url("../img/menu/configuracao.png"); }
+.cont-menu .usuario { line-height: 30px; color: #AAA; margin-top: 28px; }
+.cont-menu .usuario a { color: #990000; }
+
+
+
+/* RODAPE */
+.endereco { margin-top: 40px; }
+.rod-line { border-top: 1px solid #CCCCCC; margin-top: 30px; padding: 10px 0; height: 60px; }
+
+
+
+/* PAGINA MINHA AREA */
+.formulario { background: #F0F0F0; margin: 30px 0 0; min-height: 40px; padding: 10px; width: 960px; position: relative; }
+.for-minha-area .field { width: 430px; float: left; }
+
+.action-tela-home { position: absolute; right: 10px; bottom: 10px; }
+.carregar { background: #CCC; padding: 20px; display: block; margin-top: 15px; /* float: left; width: 600px; */ }
+.downloadAll { background: #CCC; padding: 20px; display: block; margin-top: 15px; float: right; width: 285px; }
+
+.alerta { border: 1px solid #FED22F; padding: 20px 20px 20px 54px; width: 904px; margin-top: 15px; background: #FFF0A4 url("../img/restricao/warning.png") 15px center no-repeat; }
+
+
+/* TABELA */
+.table-list { width: 980px; margin: 10px 0px; }
+.table-list .topo-a { display: inline-block; margin-bottom: 10px; }
+.table-list table { width: 100%; border-collapse: collapse; }
+.table-list th .text { border-right: 1px solid #FFFFFF; display: inline-block; height: 14px; padding: 9px 0; vertical-align: middle; width: 100%; }
+.table-list th .show-all { cursor: pointer; float: left; margin-left: 5px; margin-top: 7px; }
+.table-list tr { height: 40px; }
+.table-list thead tr { background: url("../img/table/fundo-order.png") left center repeat-x; color: #555; text-transform: uppercase; }
+.table-list .border { border-bottom: 1px solid #F5F5F5; }
+.table-list .line .ui-icon { margin: 0px 5px; cursor: pointer; height: 13px; }
+.table-list .line.active { background: #FFF0A4; border-color: #FED22F; }
+.table-list .line input { width: 310px; }
+.table-list .line span.center { display: block; text-align: center; }
+.table-list .show-line { display: none; }
+.table-list .show-line .parte { float: left; margin: 10px; text-align: center; }
+.table-list .show-line .title { font-weight: bold; color: #999; display: block; } 
+.table-list .show-line .value { display: inline-block; }
+.table-list .show-line .value a { display: block; width: 48px; height: 48px; background-position: center; background-repeat: no-repeat; }
+.table-list .show-line .value .d-xml { background-image: url("../img/arquivos/download-xml.png"); }
+.table-list .show-line .value .d-pdf { background-image: url("../img/arquivos/download-pdf.png"); }
+.table-list .show-line .value .d-email { background-image: url("../img/arquivos/email-send.png"); }
+.table-list .custom-usuarios td { text-align: center; }
+.table-list .custom-usuarios td.nome { text-align: left; padding-left: 10px; }
+
+
+
+/* CUSTOM UI */
+.ui-icon { display: inline-block; width: 16px; height: 16px; background-repeat: no-repeat; }
+.ui-icon.black { background-image: url("../img/table/ui-icons.png"); }
+.ui-icon-more { background-position: -32px -128px; }
+.ui-icon-less { background-position: -64px -128px; }
+/* DATA PICKER */
+.ui-datepicker { width: 220px !important; }
+.ui-datepicker td span, .ui-datepicker td a { width: 23px; text-align: center; }
+.ui-datepicker td a:hover { border-color: #CCC; }
+
+
+
+/* ERROR */
+.error-separ { border-bottom: 1px solid #E0E0E0; margin: 20px auto; padding: 10px 0px; }
+.cont-imagem { width: 180px; height: 176px; float: left; }
+.cont-imagem.page { background: url("../img/restricao/pagina-nao-encontrada.png") center center no-repeat; }
+.cont-imagem.aces { background: url("../img/restricao/acesso-restrito.png") center center no-repeat; }
+.error-dir { float: left; padding-left: 50px; width: 600px; height: 100px; padding-top: 30px; }
+.error-dir span { display: block; color: #333; font-size: 12px; margin: 10px 0px 15px 0px; }
+.error-dir a {  }
+
+
