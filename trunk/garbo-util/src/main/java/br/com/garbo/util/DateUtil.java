@@ -1,11 +1,11 @@
-package br.com.viasoft.util;
+package br.com.garbo.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.com.viasoft.enumeration.FormatDate;
+import br.com.garbo.enumeration.FormatDate;
 
 public class DateUtil {
 	

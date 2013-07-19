@@ -1,4 +1,4 @@
-package br.com.viasoft.util;
+package br.com.garbo.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

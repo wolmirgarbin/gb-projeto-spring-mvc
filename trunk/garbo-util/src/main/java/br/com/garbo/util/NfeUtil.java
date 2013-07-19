@@ -1,4 +1,4 @@
-package br.com.viasoft.util;
+package br.com.garbo.util;
 
 import java.io.File;
 
@@ -7,7 +7,7 @@ import org.jdom2.Element;
 import org.jdom2.Namespace;
 import org.jdom2.input.SAXBuilder;
 
-import br.com.viasoft.nfe.ArquivoNfeTO;
+import br.com.garbo.nfe.ArquivoNfeTO;
 
 public class NfeUtil {
 	
