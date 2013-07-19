@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+	
+	<!-- <mvc:annotation-driven/>  -->
+	<!-- 
+		não foi utilizado a configuração padrão do mvn, pois é necessário configurar o bean 
+		CustomAnnotationMethodHandlerAdapter em vez do AnnotationMethodHandlerAdapter 
+	-->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<util:list>
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+			</util:list>
+		</property>
+	</bean>
+	<!-- <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" p:order="3" p:useDefaultSuffixPattern="false"/>
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> -->
+	
+	<!-- Indica ao spring para ignorar tudo o que estiver em resouces, todo o conteudo estatico não será interceptado pelo spring -->
+	<mvc:default-servlet-handler/>
+
+
+	<!-- 
+		Responsável pelos interceptors do site
+		
+		SecurityPageInterceptor - gerencia acesso restrito a usuários diversos
+		AttributesPageInterceptor - ingeta atributos compartinhados para a view
+	 -->
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="br.com.viasoft.portaldef.web.interceptor.SecurityPageInterceptor">
+				<!-- <property name="listaPatternLoginRequired">
+					<list>
+						<value>/minha-area</value>
+					</list>
+				</property> -->
+			</bean>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="br.com.viasoft.portaldef.web.interceptor.AttributesPageInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans>

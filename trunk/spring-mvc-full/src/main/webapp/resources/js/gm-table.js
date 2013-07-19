@@ -1,0 +1,133 @@
+(function($){
+    $.fn.gmTable = function(settings){
+        var config = {
+            version	: '1.0'
+        };
+        if (settings){$.extend(config, settings);}
+
+        // para cada tabela
+        return this.each(function(){
+            var $this = $(this);
+            
+            // ajusta o ultimo titulo para nÃ£o deixar a borda
+            $this.find("th span:last").css("border-right", "none");
+            
+            // show all
+            $this.find(".show-all").unbind("click").bind('click',function(){
+            	var $more = $(this);
+            	
+            	// mostra a linha oculta
+            	var $lines = $more.parents("table").find(".line");
+            	var $icons = $more.parents("table").find(".ui-icon");
+            	var $showLine = $more.parents("table").find(".show-line");
+            	if( $more.hasClass("ui-icon-more") ) {
+            		$lines.removeClass("border");
+            		$showLine.show();
+            		$icons.removeClass("ui-icon-more").addClass("ui-icon-less");
+            		$more.removeClass("ui-icon-more").addClass("ui-icon-less");
+            	} else {
+            		$lines.addClass("border");
+            		$showLine.hide();
+            		$icons.removeClass("ui-icon-less").addClass("ui-icon-more");
+            		$more.removeClass("ui-icon-less").addClass("ui-icon-more");
+            	}
+            });
+            
+            // evento para abrir os detalhes da linha
+            $this.find(".expand-row").unbind("click").bind('click',function(){
+            	var $more = $(this);
+            	
+            	// mostra a linha oculta
+            	var $parentLine = $more.parents(".line");
+            	var $showLine = $more.parents(".line").next(".show-line");
+            	if( $showLine.is(":hidden") ) {
+            		$parentLine.removeClass("border");
+            		$showLine.show();
+            		$more.removeClass("ui-icon-more").addClass("ui-icon-less");
+            	} else {
+            		$showLine.hide();
+            		$parentLine.addClass("border");
+            		$more.parents("table").find(".show-all").removeClass("ui-icon-less").addClass("ui-icon-more");
+            		$more.removeClass("ui-icon-less").addClass("ui-icon-more");
+            	}
+            });
+            
+            // icones de download
+            $this.find(".chama-download").unbind("click").bind('click',function(){
+            	window.open(applicationPath +"/json/download-arquivos/"+ $(this).data("id"));
+            });
+            
+            // enviar email para usuÃ¡rio
+            $this.find(".send-mail").unbind("click").bind("click", function(){
+            	$.ajax({
+					type: "GET",
+					url: applicationPath +"json/enviar-docs",
+					data: { nota: $(this).data("id") },
+					dataType: "json",
+					traditional:true,
+					cache:true,
+					contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+					timeout:45000
+				}).done(function(json) {
+					if( json.permite ) {
+						addMessageSuccess( json.mensagem );
+					} else {
+						addMessageAlert("Não tem permissão para enviar este arquivo!");
+					}
+				}).fail(function(){ 
+					addMessageAlert("Erro ao enviar e-mail!");
+				});
+            })
+        });
+    };
+    
+    $.fn.gmTableUsuario = function(settings){
+        var config = {
+            version	: '1.0'
+        };
+        if (settings){$.extend(config, settings);}
+
+        // para cada tabela
+        return this.each(function(){
+            var $this = $(this);
+            
+            // ajusta o ultimo titulo para nÃ£o deixar a borda
+            $this.find("th span:last").css("border-right", "none");
+            
+            // evento para abrir os detalhes da linha
+            $this.find(".save-email").unbind("change").bind('change',function(){
+            	var $email = $(this);
+            	
+            	var param = {};
+            	param.email = $email.val();
+            	param.id = $email.data("id");
+            	
+            	$.ajax({
+            		type: "GET",
+            		url: applicationPath +"json/update-email-user",
+            		data: param,
+            		dataType: "json"
+            	}).done(function(json) {
+            		if( json.sucesso ) {
+            			// controle de mostra linha em amarelo ou branca
+            			if( json.salvouNull ) {
+            				$email.parents(".line").addClass("active");
+            			} else {
+            				$email.parents(".line").removeClass("active");
+            			}
+            			// controle de motrar links no topo da tabela
+            			if( json.quantidadeUsuarioSemEmail > 0 ) {
+            				$(".mostrar-apenas-email").show();
+            			} else {
+            				$(".mostrar-apenas-email").hide();
+            			}
+            		} else {
+            			alert("Erro ao atualizar e-mail");
+            		}
+            	}).fail(function(){
+            		alert("Erro ao atualizar e-mail");
+            	});
+            });
+        });
+    };
+})(jQuery);

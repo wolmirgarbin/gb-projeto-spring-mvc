@@ -1,0 +1,166 @@
+package br.com.viasoft.portaldef.web.controller;
+
+import javax.validation.Valid;
+
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import br.com.viasoft.portaldef.configure.ConfigureApp;
+import br.com.viasoft.portaldef.entities.Empresa;
+import br.com.viasoft.portaldef.entities.Usuario;
+import br.com.viasoft.portaldef.enumerations.SimNao;
+import br.com.viasoft.portaldef.service.EmpresaService;
+import br.com.viasoft.portaldef.service.MailSendService;
+import br.com.viasoft.portaldef.service.UsuarioService;
+import br.com.viasoft.portaldef.util.Results;
+import br.com.viasoft.portaldef.web.anotations.ConfigAcessoUsuario;
+import br.com.viasoft.portaldef.web.anotations.ConfigPage;
+import br.com.viasoft.portaldef.web.to.AtualizaSenhaTO;
+import br.com.viasoft.util.CriptoUtil;
+import br.com.viasoft.util.PassUtil;
+
+@Controller
+public class UsuarioController extends BaseController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(UsuarioController.class);
+	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private MailSendService mailSendService;
+	
+	@Autowired
+	private EmpresaService empresaService;
+	
+	
+	
+	
+	@RequestMapping(value = "/", method = {RequestMethod.POST})
+	@ConfigPage(title="Login | Portal DFE", addEmpresa=true, isCapa=true, usaRoleAdm=true)
+	public String acessar(Model model, @Valid Usuario usuario, BindingResult result) {
+		
+		if(result.hasFieldErrors("usuario") || result.hasFieldErrors("senha")) {
+			return "index";
+		}
+		
+		final Usuario usuarioBanco = usuarioService.login(usuario);
+		
+		if( usuarioBanco != null ) {
+			LOGGER.info("Acessou com o usuário: "+ usuario.getUsuario() );
+			if( usuarioBanco.getMudouSenha().equals(SimNao.N) ) {
+				return Results.redirect( URL_MINHA_AREA_SENHA );
+			} else {
+				return Results.redirect( URL_MINHA_AREA );
+			}
+		} else {
+			addMensagem(model, "Usuário ou senha não conferem");
+			model.addAttribute("cnpj", usuario.getUsuario() );
+			return "index";
+		}
+	}
+	
+	
+	@RequestMapping(value = "/"+ URL_USUARIO_ENVIAR_SENHA, method = RequestMethod.GET)
+	public String enviarSenha(Model model) {
+		return Results.redirect("/");
+	}
+	
+	
+	@RequestMapping(value = "/"+ URL_USUARIO_ENVIAR_SENHA, method = RequestMethod.POST)
+	@ConfigPage(title="Envio de senha | Portal DFE", addEmpresa=true, isCapa=true, usaRoleAdm=true)
+	public String enviarSenha(Model model, @Valid Usuario usuario, BindingResult result) {
+		
+		// para funcionar a validação apenas do campo usuario
+		model.addAttribute("validSenha", false);
+		
+		if(result.hasFieldErrors("usuario")) {
+			return "index";
+		} else {
+			
+			Usuario userBd = usuarioService.findByUsuario(usuario.getUsuario());
+			if( userBd == null ) {
+				addMensagem(model, "Usuario não encontrado, verifique seu cpf/cnpj");
+			} else {
+				if( StringUtils.isNotEmpty(userBd.getPessoa().getEmail()) ) {
+					// gera senha aleatoria
+					final String senha = PassUtil.getRandomPass(8);
+					
+					// gera uma senha de 8 digitos aleatoria
+					userBd.setSenha(CriptoUtil.criptografar(senha));
+					userBd.setMudouSenha(SimNao.N);
+					
+					// atualiza o cadastro do usuario com a nova senha
+					userBd = usuarioService.saveNoSession(userBd);
+					
+					// envia o email com a nova senha
+					final String[] para = { userBd.getPessoa().getEmail() };
+					final StringBuilder conteudo = new StringBuilder();
+					conteudo.append( "<br>------------------------------------------------" );
+					conteudo.append( "<br>Sua nova senha para acesso do portal DF-e é : <b>" ).append( senha ).append( "</b>" );
+					conteudo.append( "<br>------------------------------------------------" );
+					mailSendService.sendMail(para, ConfigureApp.getInstance().getEmailPadrao(), "Envio de senha", conteudo.toString());
+					
+					// mostra a mensagem na tela
+					addConfirmacao(model, "Enviamos para seu e-mail ("+ userBd.getPessoa().getEmail() +") uma senha temporaria para acessar o sistema.<br>Acesse seu e-mail, copie sua senha e informe no formulário.");
+				} else {
+					// enviar email para a empresa responsável
+					final Empresa empresa = empresaService.findOneJoinConfig();
+					final String[] para = { empresa.getConfig().getEmailNotificacao() };
+					final StringBuilder conteudo = new StringBuilder();
+					conteudo.append( "<br>------------------------------------------------" );
+					conteudo.append( "<br>O portal DF-e teve uma solicitação de acesso do cpf/cnpj : <b>" ).append( usuario.getUsuario() ).append( "</b>" );
+					conteudo.append( "<br>Para permitir o acesso ao portal, o cliente precisa ter um endereço de e-mail valido para receber sua senha.");
+					conteudo.append( "<br>Acesse com usuário administrador e cadastre o e-mail deste cliente.");
+					conteudo.append( "<br>------------------------------------------------" );
+					mailSendService.sendMail(para, ConfigureApp.getInstance().getEmailPadrao(), "Solicitação de acesso", conteudo.toString());
+					
+					addMensagem(model, "Endereço de e-mail não cadastrado! <br>Notificamos o responsável para entrar em contato!");
+				}
+			}
+			
+			model.addAttribute("cnpj", usuario.getUsuario() );
+			return "index";
+		}
+	}
+	
+	
+	@RequestMapping(value = "/"+ URL_USUARIO_LOGOUT, method={RequestMethod.GET,RequestMethod.POST})
+	public String logout(Model model) {
+		usuarioService.logout();
+		return Results.redirect("/");
+	}
+	
+	
+	@RequestMapping(value = "/"+ URL_MINHA_AREA_SENHA, method = RequestMethod.POST)
+	@ConfigPage(title="Alterar Senha | Portal DFE", addEmpresa=true, menuPage="senhas", usaRoleAdm=true)
+	@ConfigAcessoUsuario(role="ALL")
+	public String alterarSenha(Model model, @Valid AtualizaSenhaTO atualizarSenhaTO, BindingResult result) {
+		if(result.hasFieldErrors("senhaAtual") || result.hasFieldErrors("senhaNova") || result.hasFieldErrors("senhaConfirma") ) {
+			addMensagem(model, "Ajuste os erros no formulário e salve novamente");
+		} else {
+			if( CriptoUtil.criptografar(atualizarSenhaTO.getSenhaAtual()).equals( usuarioService.getUsuario().getSenha() ) ) {
+				if( atualizarSenhaTO.getSenhaNova().equals( atualizarSenhaTO.getSenhaConfirma() ) ) {
+					final Usuario usuario = usuarioService.getUsuario();
+					usuario.setSenha( CriptoUtil.criptografar(atualizarSenhaTO.getSenhaNova()) );
+					usuario.setMudouSenha(SimNao.S);
+					usuarioService.save(usuario);
+					addConfirmacao(model, "Senha alterada com sucesso");
+				} else {
+					addMensagem(model, "Confirmação da senha não confere com a nova senha");
+				}
+			} else {
+				addMensagem(model, "Senha atual informada não confere com a senha cadastrada");
+			}
+		}
+		return MinhaAreaController.BASE_FOLDER +"senhas";
+	}
+	
+}
