@@ -1,4 +1,4 @@
-package br.com.viasoft.nfe;
+package br.com.garbo.nfe;
 
 import java.io.Serializable;
 

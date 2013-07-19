@@ -1,4 +1,4 @@
-package br.com.viasoft.enumeration;
+package br.com.garbo.enumeration;
 
 import lombok.Getter;
 
