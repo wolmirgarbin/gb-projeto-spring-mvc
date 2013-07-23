@@ -1,0 +1,51 @@
+.ui-datatable .ui-sortable-column-icon {
+    /*vertical-align: top !important;
+    left: auto;
+    right: 0;*/
+}
+
+.ui-widget {
+    font-size: 10px !important;
+}
+
+.ui-panelgrid {
+    border: none !important;
+}
+
+.ui-panelgrid tr{
+    border: none !important;
+}
+
+.ui-panelgrid td, .ui-panelgrid tr{
+    border: none !important;
+    padding: 6px 10px;
+}
+
+.ui-widget .ui-widget {
+    font-size: 10px !important;
+}
+
+.ui-datatable th div.ui-dt-c,
+.ui-datatable
+.ui-datatable-data td div.ui-dt-c,
+.ui-datatable
+.ui-datatable-data-empty td div.ui-dt-c,
+.ui-datatable tfoot td div.ui-dt-c {
+    padding: 4px 10px;
+    overflow: hidden;
+    font-size: 10px !important;
+}
+
+.ui-paginator
+.ui-paginator-page,
+.ui-paginator
+.ui-paginator-next,
+.ui-paginator
+.ui-paginator-last,
+.ui-paginator
+.ui-paginator-first,
+.ui-paginator
+.ui-paginator-prev {
+    cursor: pointer;
+    font-size: 10px !important;
+}

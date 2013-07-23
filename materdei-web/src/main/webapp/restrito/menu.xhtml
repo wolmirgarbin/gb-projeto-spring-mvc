@@ -1,0 +1,12 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:form>
+        <p:menubar autoDisplay="false">
+            <p:submenu label="#{msg.menuCadastros}">
+                <p:menuitem value="#{msg.subMenuCadastroCliente}" action="#{consultarCliente.setup}" ajax="false"/>
+            </p:submenu>
+            <p:menuitem value="#{msg.geralSair}" action="/login?faces-redirect=true" icon="ui-icon-close"/>
+        </p:menubar>
+    </h:form>
+</html>
