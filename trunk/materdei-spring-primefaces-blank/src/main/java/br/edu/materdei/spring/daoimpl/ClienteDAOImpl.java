@@ -1,8 +1,9 @@
-package br.com.jsf.daoimpl;
+package br.edu.materdei.spring.daoimpl;
 
-import br.com.jsf.constant.SpringScope;
-import br.com.jsf.dao.ClienteDAO;
-import br.com.jsf.model.Cliente;
+import br.edu.materdei.spring.constant.SpringScope;
+import br.edu.materdei.spring.dao.ClienteDAO;
+import br.edu.materdei.spring.model.Cliente;
+
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;

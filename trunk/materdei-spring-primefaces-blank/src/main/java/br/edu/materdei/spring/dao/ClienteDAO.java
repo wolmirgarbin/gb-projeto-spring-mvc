@@ -1,15 +1,17 @@
-package br.com.jsf.service;
+package br.edu.materdei.spring.dao;
 
-import br.com.jsf.model.Cliente;
 import java.io.Serializable;
 import java.util.List;
+
 import org.hibernate.criterion.Order;
+
+import br.edu.materdei.spring.model.Cliente;
 
 /**
  *
  * @author duduso
  */
-public interface ClienteService extends Serializable{
+public interface ClienteDAO extends Serializable {
 
     public int contarTotalClientes(Cliente filtros);
 

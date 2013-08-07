@@ -1,7 +1,8 @@
-package br.com.jsf.datamodel;
+package br.edu.materdei.spring.datamodel;
 
-import br.com.jsf.model.Cliente;
-import br.com.jsf.service.ClienteService;
+import br.edu.materdei.spring.model.Cliente;
+import br.edu.materdei.spring.service.ClienteService;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

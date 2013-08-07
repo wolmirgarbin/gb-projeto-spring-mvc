@@ -1,4 +1,4 @@
-package br.com.jsf.scope;
+package br.edu.materdei.spring.scope;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,9 +1,10 @@
-package br.com.jsf.controller;
+package br.edu.materdei.spring.controller;
 
-import br.com.jsf.datamodel.ClienteDataModel;
-import br.com.jsf.enumerator.PaginaEnum;
-import br.com.jsf.model.Cliente;
-import br.com.jsf.service.ClienteService;
+import br.edu.materdei.spring.datamodel.ClienteDataModel;
+import br.edu.materdei.spring.enumerator.PaginaEnum;
+import br.edu.materdei.spring.model.Cliente;
+import br.edu.materdei.spring.service.ClienteService;
+
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;

@@ -1,9 +1,10 @@
-package br.com.jsf.serviceimpl;
+package br.edu.materdei.spring.serviceimpl;
 
-import br.com.jsf.constant.SpringScope;
-import br.com.jsf.dao.ClienteDAO;
-import br.com.jsf.model.Cliente;
-import br.com.jsf.service.ClienteService;
+import br.edu.materdei.spring.constant.SpringScope;
+import br.edu.materdei.spring.dao.ClienteDAO;
+import br.edu.materdei.spring.model.Cliente;
+import br.edu.materdei.spring.service.ClienteService;
+
 import java.util.List;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
