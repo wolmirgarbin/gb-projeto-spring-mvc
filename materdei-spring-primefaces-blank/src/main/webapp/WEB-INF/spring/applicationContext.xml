@@ -22,7 +22,7 @@
     <task:annotation-driven />
     
     <!-- Inicializa os beans com anotacoes: @Component, @Service e @Controller -->
-    <context:component-scan base-package="br.com.jsf" />
+    <context:component-scan base-package="br.edu.materdei.spring" />
 
     <!-- Configura o Data Source da Aplicação -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
