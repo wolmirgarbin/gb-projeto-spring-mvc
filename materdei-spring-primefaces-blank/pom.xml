@@ -219,6 +219,12 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
+	
+		<dependency>
+			<groupId>com.sun.el</groupId>
+			<artifactId>el-ri</artifactId>
+			<version>1.0</version>
+		</dependency>
 
     </dependencies>
 
