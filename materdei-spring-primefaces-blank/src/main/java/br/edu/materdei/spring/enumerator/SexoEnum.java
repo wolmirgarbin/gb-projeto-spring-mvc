@@ -1,4 +1,4 @@
-package br.com.jsf.enumerator;
+package br.edu.materdei.spring.enumerator;
 
 /**
  *

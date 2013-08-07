@@ -1,4 +1,4 @@
-package br.com.jsf.model;
+package br.edu.materdei.spring.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
