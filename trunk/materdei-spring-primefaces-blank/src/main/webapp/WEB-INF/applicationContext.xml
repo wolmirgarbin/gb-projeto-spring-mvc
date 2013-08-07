@@ -38,7 +38,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
             <list>
-                <value>br.com.jsf.model</value>
+                <value>br.edu.materdei.spring.model</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -76,7 +76,7 @@
         <property name="scopes">
             <map>
                 <entry key="view">
-                    <bean class="br.com.jsf.scope.ViewScope"/>
+                    <bean class="br.edu.materdei.spring.scope.ViewScope"/>
                 </entry>
             </map>
         </property>
