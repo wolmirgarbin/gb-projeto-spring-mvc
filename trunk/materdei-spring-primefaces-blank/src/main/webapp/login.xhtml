@@ -3,54 +3,14 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core">
-
+	
     <h:head>
-        <title>JSF_Spring_Hibernate_Project</title>
-        <h:outputStylesheet library="css" name="stylesheet.css"/>
+        <title>Meu primeiro projeto</title>
+        <h:outputStylesheet library="css" name="estilo.css"/>
     </h:head>
-    
-    <style>
-        .div01{
-            position:absolute; top:40%; left:40%;
-        }
-        .div02{
-            vertical-align: middle; margin-top: 30px
-        }
-        .panel{
-            width: 400px; height: 200px; border-radius: 5em; background: rgb(172, 190, 206);
-        }
-        .label{
-            font-size: 10px; font-weight: bold;
-        }
-    </style>
-
+	
     <h:form>
-        <div align="center" class="div01">
-            <p:messages closable="true"/>
-            <p:panel styleClass="panel">
-                <div align="center" class="div02">
-                    <h:panelGrid columns="2">
-                        <h:graphicImage value="/resources/images/key.png"/>
-                        <h:panelGroup>
-                            <h:panelGrid columns="1">
-                                <p:outputLabel for="itLogin" value="#{msg.usuarioLogin}" styleClass="label"/>
-                                <p:inputText id="itLogin" size="20" required="true" requiredMessage="#{msg.usuarioLogin}: #{msg.geralCampoObrigatorio}"/>
-                            </h:panelGrid>
-                            <h:panelGrid columns="1">
-                                <p:outputLabel for="itSenha" value="#{msg.usuarioSenha}" styleClass="label"/>
-                                <p:password id="itSenha" size="20" required="true" requiredMessage="#{msg.usuarioSenha}: #{msg.geralCampoObrigatorio}"/>
-                            </h:panelGrid>
-                        </h:panelGroup>    
-                    </h:panelGrid>
-                    <br/>
-                    <p:commandButton value="#{msg.geralEntrar}" 
-                                     action="/publico/template?faces-redirect=true" 
-                                     ajax="false" 
-                                     icon="ui-icon-check"/>
-                </div>
-            </p:panel>
-        </div>
+        <h:outPutText value="#{  homeMB.nome }"/>
     </h:form>
-
+    
 </html>
-
