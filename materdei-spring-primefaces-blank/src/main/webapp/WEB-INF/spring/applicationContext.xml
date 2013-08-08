@@ -22,9 +22,9 @@
     <task:annotation-driven />
     
     <!-- Inicializa os beans com anotacoes: @Component, @Service e @Controller -->
-    <context:component-scan base-package="br.edu.materdei.spring" />
+    <context:component-scan base-package="br.edu.materdei.spring.controller" />
 
-    <!-- Configura o Data Source da Aplicação -->
+    <!-- Configura o Data Source da Aplicação 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/teste"/>
@@ -32,8 +32,9 @@
         <property name="password" value="root"/>
         <property name="validationQuery" value="SELECT 1"/>
     </bean>
+	-->
 	
-    <!-- Declaração da Fábrica de Sessões do Hibernate -->
+    <!-- Declaração da Fábrica de Sessões do Hibernate
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan">
@@ -58,18 +59,21 @@
             </value>
         </property>
     </bean>
-	
-    <!-- Definição do Transaction Manager Para a Fábrica de Sessões do Hibernate -->
+	 -->
+    <!-- Definição do Transaction Manager Para a Fábrica de Sessões do Hibernate 
     <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-    <!-- Interpretador de anotacoes @Transactional -->
+	-->
+	
+    <!-- Interpretador de anotacoes @Transactional 
     <tx:annotation-driven transaction-manager="txManager"/>
+    -->
     
-    <!-- Tradutor de Excessões Lançadas Após o Procesamento dos Beans -->
+    <!-- Tradutor de Excessões Lançadas Após o Procesamento dos Beans
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
     <bean class="org.springframework.orm.hibernate4.HibernateExceptionTranslator"/>
+     -->
     
     <!-- Configuração do Scopo Customizado Para Utilização Pelo Spring - CustomViewScope -->
     <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
