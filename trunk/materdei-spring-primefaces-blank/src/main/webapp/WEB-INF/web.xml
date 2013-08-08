@@ -37,7 +37,7 @@
         <param-value>Development</param-value>
     </context-param>
 	  
-    <!-- Filtro Para Evitar Erros de LazyInitializationException -->
+    <!-- Filtro Para Evitar Erros de LazyInitializationException
     <filter>
         <filter-name>openSessionInViewFilter</filter-name>
         <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
@@ -50,6 +50,7 @@
         <filter-name>openSessionInViewFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+     -->
 
     <!-- JSF Servlet is defined to container -->
     <servlet>
