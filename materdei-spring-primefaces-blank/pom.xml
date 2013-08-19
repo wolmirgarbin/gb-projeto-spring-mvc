@@ -102,7 +102,8 @@
 
         <dependency>
             <groupId>org.primefaces.themes</groupId>
-            <artifactId>glass-x</artifactId>
+			<artifactId>glass-x</artifactId>
+            <!-- <artifactId>bootstrap</artifactId> -->
             <version>${primefaces.theme.version}</version>
         </dependency>
 
