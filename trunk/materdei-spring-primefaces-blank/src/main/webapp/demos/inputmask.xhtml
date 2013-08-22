@@ -1,0 +1,40 @@
+<html 	xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui"
+		>
+		
+	<h:head>
+		<title>Usando inputs</title>
+	</h:head>
+	<h:body>
+		<f:view>
+			<h:form>
+				<!-- comentarios em jsf -->
+				<p:layout>
+					<p:layoutUnit 	position="west" 
+									header="Componentes">
+									
+						<p:commandLink 	value="Input Text e Input Password"
+										action="input.xhtml"
+						>
+						</p:commandLink>
+						
+					</p:layoutUnit>
+					<p:layoutUnit 	position="center" 
+									header="Exemplo da utilização">
+						
+						<p:inputMask mask="999.999.999-99" />
+						<br />
+						<p:inputMask mask="99.999-999" />
+						<br />
+						<p:inputMask mask="99/99/9999" />
+						<br />
+						<p:inputMask mask="(99) 9999 9999" />
+						
+					</p:layoutUnit>
+				</p:layout>
+			</h:form>
+		</f:view>
+	</h:body>
+</html>
