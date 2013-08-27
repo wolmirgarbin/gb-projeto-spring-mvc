@@ -4,9 +4,9 @@
 	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>br.com.viasoft</groupId>
-	<artifactId>viasoft-portaldfe-web</artifactId>
-	<name>viasoft-portaldfe-web</name>
+	<groupId>br.com.garbo</groupId>
+	<artifactId>garbo-corporativo</artifactId>
+	<name>garbo-corporativo</name>
 	<packaging>war</packaging>
 	<version>1.0.13.08.0</version>
 	
@@ -22,18 +22,18 @@
 	</properties>
 	
 	<repositories>
-        <repository>
+        <!--<repository>
             <id>public</id>
-            <name>ViasoftRepository</name>
+            <name></name>
             <url>http://192.168.2.228:8080/nexus/content/groups/public/</url>
-        </repository>
+        </repository> -->
     </repositories>
 	
 	<dependencies>
 	
 		<dependency>
-			<groupId>br.com.viasoft</groupId>
-			<artifactId>viasoft-util</artifactId>
+			<groupId>br.com.garbo</groupId>
+			<artifactId>garbo-util</artifactId>
 			<version>1.0</version>
 		</dependency>
 		
@@ -430,7 +430,7 @@
 	
     
    	<build>
-        <finalName>viasoft-portaldfe-web</finalName>
+        <finalName>garbo-corporativo</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
