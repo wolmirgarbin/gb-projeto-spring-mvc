@@ -1,4 +1,4 @@
-package br.com.viasoft.portaldef.web.anotations;
+package br.com.garbo.corp.web.anotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
