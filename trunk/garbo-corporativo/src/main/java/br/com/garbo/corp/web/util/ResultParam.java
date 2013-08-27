@@ -1,4 +1,4 @@
-package br.com.viasoft.portaldef.util;
+package br.com.garbo.corp.web.util;
 
 import lombok.Getter;
 import lombok.Setter;
