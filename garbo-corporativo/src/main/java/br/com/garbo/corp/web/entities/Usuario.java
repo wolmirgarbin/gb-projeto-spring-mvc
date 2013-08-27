@@ -21,8 +21,8 @@ import lombok.Setter;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import br.com.viasoft.portaldef.enumerations.Roles;
-import br.com.viasoft.portaldef.enumerations.SimNao;
+import br.com.garbo.corp.web.enumerations.Roles;
+import br.com.garbo.corp.web.enumerations.SimNao;
 
 @Entity
 @Table(name="USUARIO")

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-import br.com.viasoft.portaldef.enumerations.SimNao;
+import br.com.garbo.corp.web.enumerations.SimNao;
 
 @Entity
 @Table(name="GERENCIADORES")
