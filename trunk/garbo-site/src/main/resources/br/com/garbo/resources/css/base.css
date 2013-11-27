@@ -1,0 +1,32 @@
+/* BASE */
+body { margin: 0px; padding: 0px; font-size: 11px; font-family: arial; overflow-y: scroll; }
+.container { width: 980px; margin: 0px auto; }
+.colorf { color: #FFF; }
+.radius-2 { -moz-border-radius: 2px; /* Para Firefox */ -webkit-border-radius: 2px; /*Para Safari e Chrome */ border-radius: 2px; /* Para Opera 10.5+*/ }
+.shadow { box-shadow: 1px 1px 7px rgba(255, 255, 255, 0.4); }
+.shadow-black { box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.4); }
+.shadow-b-min { box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); }
+
+
+.loader { background: url("../img/icone/ajax-loader.gif") center center no-repeat; width: 40px; height: 12px; display: none; }
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: block/* inline-block */; }
+.clear { clear: both; }
+.fr { float: right; }
+.fl { float: left; }
+html[xmlns] .clearfix { display: block; }
+a { text-decoration: none; color: #0066FF; }
+a:hover { text-decoration: underline; }
+p { margin: 2px 0px; }
+.paragrafo { font-size: 12px; line-height: 150%; margin: 10px 0; text-align: justify; }
+img { border: none; }
+
+
+
+/* MENSAGENS DE VALIDA«„O */
+.validator { width: 100%; position: absolute; z-index: 100; display: none; top: 10px;  height: 1px; }
+.validatorMessage { color: #FFFFFF; z-index: 100; width: 480px; padding: 20px; margin: 0px auto;  background: url("../img/fundo/preto-opc.png"); }
+.validatorMessage .mes-title { background: url("../img/icones/all-alert.png") left center no-repeat; font-size: 20px; font-weight: bold; margin-bottom: 15px; padding: 10px 0 10px 60px; width: 200px; }
+.validatorMessage .mes-title.sucesso { background: url("../img/icones/all-sucess.png") left center no-repeat; }
+.validatorMessage span { display: block; line-height: 20px; }
+
