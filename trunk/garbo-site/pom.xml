@@ -4,10 +4,31 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.garbo</groupId>
 	<artifactId>garbo-site</artifactId>
-	<version>1.0</version>
+	<version>1.0.13.08.0</version>
 	<packaging>jar</packaging>
+	
+	<properties>
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
+	</properties>
 
 	<dependencies>
+		<!-- mvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+	
 		<!-- add lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
