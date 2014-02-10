@@ -1,8 +1,0 @@
-.home-topo-esp { height: 36px; }
-.home-topo { height: 36px; position: fixed; top: 0px; left: 0px; width: 100%; background: #367B09; }
-.home-topo-logo { display: block; width: 140px; height: 26px; background: url("../img/logo-branca.png") no-repeat; margin-top: 8px; float: left; }
-.home-topo-logo:hover {  }
-
-.home-topo-direita { float: right; margin-top: 9px; }
-.home-topo-configure { background: url("../img/fundo/topo-configure.png") no-repeat; width: 16px; height: 16px; display: block; }
-
