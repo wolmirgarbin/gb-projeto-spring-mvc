@@ -1,0 +1,53 @@
+
+.field { margin: 10px 0px; padding: 0px; }
+.field .button, .field input[type="text"], .field input[type="password"] {
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: #FAFAFA;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075) inset;
+    color: #333333;
+    min-height: 34px;
+    outline: none;
+    border: none;
+    width: 300px;
+    font-family: arial;
+}
+.field .button:focus, .field input[type="text"]:focus, .field input[type="password"]:focus {
+	border-color: #FFF;
+	background-color: #FFF;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075) inset, 0 0 12px rgba(255, 255, 255, 0.75);
+}
+.field .button {
+	background-color: #60B044;
+    background-image: linear-gradient(#8ADD6D, #60B044);
+    background-repeat: repeat-x;
+    border-color: #5CA941;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    width: 320px;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+}
+.field .button:hover {
+	background-color: #569E3D;
+    background-image: linear-gradient(#79D858, #569E3D);
+}
+
+
+/* ESPECIFICO CAPA */
+.capa-topo { height: 90px; }
+.capa-area { width: 100%; background: url("../img/capa/superior-fundo.png") #367B09; height: 300px; padding: 30px 0px; }
+.capa-form-acesso { width: 33%; float: right; }
+.capa-banner { width: 730px; height: 92px; margin: 10px auto; background: #F5F5F5; }
+.texto-index { color: #FFF; float: left; width: 60%; }
+.texto-h1 { margin: 0px; font-size: 5em; padding: 0px; }
+
+
+/* TOPO */
+.topo-h1 { display: block; margin: 0; position: absolute; top: 22px; }
+.topo-logo { text-indent: -400px; overflow: hidden; display: block; width: 190px; height: 40px; background: url("../img/logo.png") no-repeat center; }
