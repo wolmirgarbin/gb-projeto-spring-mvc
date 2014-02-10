@@ -18,7 +18,7 @@ public class ApplicationServerUtils {
 
 
 	public static boolean isDesenv(){
-		return "desenvolvimento".equals(ConfigureApp.getInstance().getInstanciaApp());
+		return true;//"desenvolvimento".equals(ConfigureApp.getInstance().getInstanciaApp());
 	}
 	
 
