@@ -7,7 +7,7 @@
 	<function>
 		<description>Substitui tags simbolos de maior e maior pelo seu codigo html</description>
 		<name>escapeHtml</name>
-		<function-class>br.com.core.garbosystem.tag.GarboTag</function-class>
+		<function-class>br.com.garbo.sites.tag.GarboTag</function-class>
 		<function-signature>java.lang.String escapeHtml(java.lang.String)</function-signature>
 	</function>
 	
@@ -15,7 +15,7 @@
 	<function>
 		<description>manter apenas o inicio de um texto de acordo com a quantidade passada e colocar 3 pontos no final</description>
 		<name>ajustaTexto</name>
-		<function-class>br.com.core.garbosystem.tag.GarboTag</function-class>
+		<function-class>br.com.garbo.sites.tag.GarboTag</function-class>
 		<function-signature>java.lang.String ajustaTexto(java.lang.String, java.lang.Integer)</function-signature>
 	</function>
 	

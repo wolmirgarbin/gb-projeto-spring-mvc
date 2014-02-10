@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+    <definition name="sistema.base" template="/WEB-INF/jsp/template/template.base.jsp">
+    	<put-attribute name="head" value="/WEB-INF/jsp/template/include/head.jsp" />
+    	<put-attribute name="mensagens" value="/WEB-INF/jsp/template/include/mensagens.jsp" />
+        <put-attribute name="topo" value="/WEB-INF/jsp/sistema/include/topo.jsp" />
+        <put-attribute name="rodape" value="/WEB-INF/jsp/sistema/include/rodape.jsp" />
+        <put-attribute name="javascript" value="/WEB-INF/jsp/template/include/javascript.jsp" />
+    </definition>
+
+    <definition name="sistema.index" extends="sistema.base">
+    	<put-attribute name="topo" value="/WEB-INF/jsp/site/topo.jsp" />
+        <put-attribute name="conteudo" value="/WEB-INF/jsp/site/index.jsp" />
+    </definition>
+
+    <definition name="sistema.interno" extends="sistema.base" template="/WEB-INF/jsp/template/template.sistema.jsp">
+    	<put-attribute name="topo" value="/WEB-INF/jsp/sistema/include/topo.home.jsp" />
+    </definition>
+
+    <definition name="sistema.home" extends="sistema.interno">
+        <put-attribute name="menu" value="/WEB-INF/jsp/sistema/paginas/menu.lateral.jsp" />
+        <put-attribute name="formulario" value="/WEB-INF/jsp/sistema/paginas/mural/adicionar.jsp" />
+    </definition>
+
+	<definition name="sistema.error" extends="sistema.base">
+		<put-attribute name="topo" value="/WEB-INF/jsp/site/topo.jsp" />
+        <put-attribute name="conteudo" value="/WEB-INF/jsp/site/error.jsp" />
+    </definition>
+
+</tiles-definitions>

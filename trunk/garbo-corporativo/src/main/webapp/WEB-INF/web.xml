@@ -67,4 +67,13 @@
         <url-pattern>/img-captcha</url-pattern>
     </servlet-mapping>-->
     
+    <filter>
+	  	<filter-name>WebResourceOptimizer</filter-name>
+	  	<filter-class>ro.isdc.wro.http.WroFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	  	<filter-name>WebResourceOptimizer</filter-name>
+	  	<url-pattern>/compress/*</url-pattern>
+	</filter-mapping>
+    
 </web-app>

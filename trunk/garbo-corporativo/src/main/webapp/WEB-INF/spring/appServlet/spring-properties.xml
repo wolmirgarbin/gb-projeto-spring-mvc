@@ -14,8 +14,8 @@
 
 
 	<!-- Utilizado para ler arquivos .properties por anotação do spring das configurações do sistema por ambiente -->
-    <bean id="applicationProperties" class="br.com.viasoft.portaldef.configure.ApplicationProperties"/>
-	<util:properties id="portalDfeProperties" location="#{T(br.com.viasoft.portaldef.configure.ApplicationServerUtils).getPropertyByNameLocation('application.properties')}" />
+    <bean id="applicationProperties" class="br.com.garbo.corp.web.configure.ApplicationProperties"/>
+	<util:properties id="applicationPropertiesGarbo" location="#{T(br.com.garbo.corp.web.configure.ApplicationServerUtils).getPropertyByNameLocation('application.properties')}" />
 	
 	<!-- Usado para ler arquivos properties de mensagens
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

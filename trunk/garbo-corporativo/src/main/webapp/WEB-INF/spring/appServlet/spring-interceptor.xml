@@ -40,7 +40,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean class="br.com.viasoft.portaldef.web.interceptor.SecurityPageInterceptor">
+			<bean class="br.com.garbo.corp.web.interceptor.SecurityPageInterceptor">
 				<!-- <property name="listaPatternLoginRequired">
 					<list>
 						<value>/minha-area</value>
@@ -50,7 +50,7 @@
 		</mvc:interceptor>
 		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean class="br.com.viasoft.portaldef.web.interceptor.AttributesPageInterceptor"/>
+			<bean class="br.com.garbo.sites.interceptor.AttributesPageInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
