@@ -36,11 +36,11 @@
     
     
     <!-- Job de leitura de email -->
-    <bean id="quartzMonitorarEmailJob" class="br.com.viasoft.portaldef.job.JobMonitorarEmail"/>
+    <bean id="quartzMonitorarEmailJob" class="br.com.garbo.corp.job.EnviadorDeEmail"/>
 
     <bean id="jobMonitorarEmail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
         <property name="targetObject" ref="quartzMonitorarEmailJob" />
-        <property name="targetMethod" value="monitorarEmail" />
+        <property name="targetMethod" value="execute" />
         <property name="concurrent" value="false" />
     </bean>
 

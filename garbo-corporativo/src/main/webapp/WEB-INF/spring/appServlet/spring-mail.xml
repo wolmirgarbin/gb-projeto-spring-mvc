@@ -12,7 +12,7 @@
 						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 
-    <bean id="javaMailSenderSend" class="org.springframework.mail.javamail.JavaMailSenderImpl" name="javaMailSenderSend">
+    <!-- <bean id="javaMailSenderSend" class="org.springframework.mail.javamail.JavaMailSenderImpl" name="javaMailSenderSend">
         <property name="host" value="#{systemProperties['portal.dfe.send.mail.host']}"/>
         <property name="port" value="#{systemProperties['portal.dfe.send.mail.port']}"/>
         <property name="username" value="#{systemProperties['portal.dfe.send.mail.username']}"/>
@@ -25,7 +25,7 @@
                 <prop key="mail.debug">false</prop>
             </props>
         </property>
-    </bean>
+    </bean> -->
     
     
     <!-- 
