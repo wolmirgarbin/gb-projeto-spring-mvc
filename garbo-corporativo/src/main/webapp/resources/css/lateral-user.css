@@ -1,0 +1,14 @@
+.lat-user { width: 180px; min-height: 30px; padding: 20px 0px; border-right: 1px solid #F5F5F5; }
+.lat-user-topo { width: 180px; height: 68px; }
+.lat-user-foto { width: 50px; height: 50px; float: left; background: #F0F0F0; display: block; }
+.lat-user-img { width: 50px; height: 50px; }
+.lat-user-cat { width: 115px; margin-left: 15px; float: left; padding-top: 8px; }
+.lat-user-nome { font-weight: bold; margin-bottom: 5px; display: block; }
+
+.lat-user-titulo { text-transform: uppercase; color: #DDD; font-weight: bold; display: block; padding: 5px 0px 3px; cursor: default; margin-top: 5px; border-top: 1px solid #F5F5F5; }
+.lat-user-menu { border-bottom: 1px solid #FFFFFF; display: block; padding: 3px 0; text-indent: 5px; color: #777; }
+.lat-user-menu:hover { text-decoration: none; background: #F5F5F5; }
+
+.formulario { width: 780px; }
+.titulo-modulo {  }
+.titulo-modulo h2 { color: #DDDDDD; font-size: 30px; }
