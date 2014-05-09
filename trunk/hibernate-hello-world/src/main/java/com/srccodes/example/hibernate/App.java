@@ -15,36 +15,20 @@ import org.hibernate.service.ServiceRegistryBuilder;
  *
  */
 public class App {
-    private static SessionFactory sessionFactory = null; 
-    private static ServiceRegistry serviceRegistry = null; 
-       
-    private static SessionFactory configureSessionFactory() throws HibernateException { 
-        Configuration configuration = new Configuration(); 
-        configuration.configure(); 
-         
-        Properties properties = configuration.getProperties();
-         
-        serviceRegistry = new ServiceRegistryBuilder().applySettings(properties).buildServiceRegistry();         
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry); 
-         
-        return sessionFactory; 
-    }
-     
+    
+    
     public static void main(String[] args) {
-        // Configure the session factory
-        configureSessionFactory();
-         
         Session session = null;
         Transaction tx=null;
          
         try {
-            session = sessionFactory.openSession();
+            session = HibernateHelper.getSessionFactory().openSession();
             tx = session.beginTransaction();
-             
+            
             // Creating Contact entity that will be save to the sqlite database
-            Contact myContact = new Contact(3, "My Name", "my_email@email.com");
-            Contact yourContact = new Contact(24, "Your Name", "your_email@email.com");
-             
+            Contact myContact = new Contact(1, "My Name", "my_email@email.com");
+            Contact yourContact = new Contact(2, "Your Name", "your_email@email.com");
+            
             // Saving to the database
             session.save(myContact);
             session.save(yourContact);
