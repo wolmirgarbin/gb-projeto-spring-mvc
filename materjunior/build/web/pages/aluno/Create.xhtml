@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAlunoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_dtinicio}" for="dtinicio" />
+                    <h:inputText id="dtinicio" value="#{alunoController.selected.dtinicio}" title="#{bundle.CreateAlunoTitle_dtinicio}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_dtfim}" for="dtfim" />
+                    <h:inputText id="dtfim" value="#{alunoController.selected.dtfim}" title="#{bundle.CreateAlunoTitle_dtfim}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAlunoLabel_idpessoa}" for="idpessoa" />
+                    <h:inputText id="idpessoa" value="#{alunoController.selected.idpessoa}" title="#{bundle.CreateAlunoTitle_idpessoa}" required="true" requiredMessage="#{bundle.CreateAlunoRequiredMessage_idpessoa}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alunoController.create}" value="#{bundle.CreateAlunoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{alunoController.prepareList}" value="#{bundle.CreateAlunoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAlunoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

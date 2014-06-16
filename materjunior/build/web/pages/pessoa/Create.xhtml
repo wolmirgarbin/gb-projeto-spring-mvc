@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePessoaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_idpessoa}" for="idpessoa" />
+                    <h:inputText id="idpessoa" value="#{pessoaController.selected.idpessoa}" title="#{bundle.CreatePessoaTitle_idpessoa}" required="true" requiredMessage="#{bundle.CreatePessoaRequiredMessage_idpessoa}"/>
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{pessoaController.selected.nome}" title="#{bundle.CreatePessoaTitle_nome}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{pessoaController.selected.email}" title="#{bundle.CreatePessoaTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_dtinicio}" for="dtinicio" />
+                    <h:inputText id="dtinicio" value="#{pessoaController.selected.dtinicio}" title="#{bundle.CreatePessoaTitle_dtinicio}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_dtfinal}" for="dtfinal" />
+                    <h:inputText id="dtfinal" value="#{pessoaController.selected.dtfinal}" title="#{bundle.CreatePessoaTitle_dtfinal}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_trabalhaem}" for="trabalhaem" />
+                    <h:inputText id="trabalhaem" value="#{pessoaController.selected.trabalhaem}" title="#{bundle.CreatePessoaTitle_trabalhaem}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{pessoaController.selected.tipo}" title="#{bundle.CreatePessoaTitle_tipo}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_fone}" for="fone" />
+                    <h:inputText id="fone" value="#{pessoaController.selected.fone}" title="#{bundle.CreatePessoaTitle_fone}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_aniversario}" for="aniversario" />
+                    <h:inputText id="aniversario" value="#{pessoaController.selected.aniversario}" title="#{bundle.CreatePessoaTitle_aniversario}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_cpf}" for="cpf" />
+                    <h:inputText id="cpf" value="#{pessoaController.selected.cpf}" title="#{bundle.CreatePessoaTitle_cpf}" />
+                    <h:outputLabel value="#{bundle.CreatePessoaLabel_rg}" for="rg" />
+                    <h:inputText id="rg" value="#{pessoaController.selected.rg}" title="#{bundle.CreatePessoaTitle_rg}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pessoaController.create}" value="#{bundle.CreatePessoaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pessoaController.prepareList}" value="#{bundle.CreatePessoaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePessoaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

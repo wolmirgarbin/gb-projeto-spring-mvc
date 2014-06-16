@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEgressoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_idegresso}" for="idegresso" />
+                    <h:inputText id="idegresso" value="#{egressoController.selected.idegresso}" title="#{bundle.CreateEgressoTitle_idegresso}" required="true" requiredMessage="#{bundle.CreateEgressoRequiredMessage_idegresso}"/>
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_formadoano}" for="formadoano" />
+                    <h:inputText id="formadoano" value="#{egressoController.selected.formadoano}" title="#{bundle.CreateEgressoTitle_formadoano}" />
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_cidade}" for="cidade" />
+                    <h:inputText id="cidade" value="#{egressoController.selected.cidade}" title="#{bundle.CreateEgressoTitle_cidade}" />
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_idpessoa}" for="idpessoa" />
+                    <h:inputText id="idpessoa" value="#{egressoController.selected.idpessoa}" title="#{bundle.CreateEgressoTitle_idpessoa}" required="true" requiredMessage="#{bundle.CreateEgressoRequiredMessage_idpessoa}"/>
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_localtrabalho}" for="localtrabalho" />
+                    <h:inputText id="localtrabalho" value="#{egressoController.selected.localtrabalho}" title="#{bundle.CreateEgressoTitle_localtrabalho}" />
+                    <h:outputLabel value="#{bundle.CreateEgressoLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{egressoController.selected.descricao}" title="#{bundle.CreateEgressoTitle_descricao}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{egressoController.create}" value="#{bundle.CreateEgressoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{egressoController.prepareList}" value="#{bundle.CreateEgressoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEgressoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

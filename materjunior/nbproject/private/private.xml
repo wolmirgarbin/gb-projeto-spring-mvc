@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Egresso.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Contato.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/pages/aluno/Create.xhtml</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/EgressoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/LancamentoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/ContatoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/AlunoJpaController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Lancamento.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/resources/css/jsfcrud.css</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/template.xhtml</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/resources/css/sb-admin.css</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/index.xhtml</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/Bundle.properties</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/ClienteController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/resources/js/sb-admin.js</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Projeto.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/ProjetoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/AlunoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/pages/aluno/Edit.xhtml</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/PessoaController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/web/resources/js/plugins/metisMenu/jquery.metisMenu.js</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Usuario.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Aluno.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/controller/AlunoprojetoController.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Alunoprojeto.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Cliente.java</file>
+            <file>file:/C:/Users/wolmir/Documents/NetBeansProjects/materjunior/src/java/br/com/materjunior/entities/Pessoa.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAlunoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAlunoLabel_dtinicio}"/>
+                    <h:outputText value="#{alunoController.selected.dtinicio}" title="#{bundle.ViewAlunoTitle_dtinicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_dtfim}"/>
+                    <h:outputText value="#{alunoController.selected.dtfim}" title="#{bundle.ViewAlunoTitle_dtfim}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAlunoLabel_idpessoa}"/>
+                    <h:outputText value="#{alunoController.selected.idpessoa}" title="#{bundle.ViewAlunoTitle_idpessoa}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alunoController.destroyAndView}" value="#{bundle.ViewAlunoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAlunoEditLink}"/>
+                <br />
+                <h:commandLink action="#{alunoController.prepareCreate}" value="#{bundle.ViewAlunoCreateLink}" />
+                <br />
+                <h:commandLink action="#{alunoController.prepareList}" value="#{bundle.ViewAlunoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAlunoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

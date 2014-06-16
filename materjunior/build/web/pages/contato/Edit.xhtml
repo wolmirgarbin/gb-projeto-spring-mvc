@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditContatoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditContatoLabel_idcontato}" for="idcontato" />
+                    <h:inputText id="idcontato" value="#{contatoController.selected.idcontato}" title="#{bundle.EditContatoTitle_idcontato}" required="true" requiredMessage="#{bundle.EditContatoRequiredMessage_idcontato}"/>
+                    <h:outputLabel value="#{bundle.EditContatoLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{contatoController.selected.nome}" title="#{bundle.EditContatoTitle_nome}" />
+                    <h:outputLabel value="#{bundle.EditContatoLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{contatoController.selected.email}" title="#{bundle.EditContatoTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditContatoLabel_fone}" for="fone" />
+                    <h:inputText id="fone" value="#{contatoController.selected.fone}" title="#{bundle.EditContatoTitle_fone}" />
+                    <h:outputLabel value="#{bundle.EditContatoLabel_funcao}" for="funcao" />
+                    <h:inputText id="funcao" value="#{contatoController.selected.funcao}" title="#{bundle.EditContatoTitle_funcao}" />
+                </h:panelGrid>
+                <h:commandLink action="#{contatoController.update}" value="#{bundle.EditContatoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditContatoViewLink}"/>
+                <br />
+                <h:commandLink action="#{contatoController.prepareList}" value="#{bundle.EditContatoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditContatoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

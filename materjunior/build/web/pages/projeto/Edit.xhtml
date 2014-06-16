@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProjetoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_idprojeto}" for="idprojeto" />
+                    <h:inputText id="idprojeto" value="#{projetoController.selected.idprojeto}" title="#{bundle.EditProjetoTitle_idprojeto}" required="true" requiredMessage="#{bundle.EditProjetoRequiredMessage_idprojeto}"/>
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_idcliente}" for="idcliente" />
+                    <h:inputText id="idcliente" value="#{projetoController.selected.idcliente}" title="#{bundle.EditProjetoTitle_idcliente}" required="true" requiredMessage="#{bundle.EditProjetoRequiredMessage_idcliente}"/>
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_dtinicio}" for="dtinicio" />
+                    <h:inputText id="dtinicio" value="#{projetoController.selected.dtinicio}" title="#{bundle.EditProjetoTitle_dtinicio}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_dtfinal}" for="dtfinal" />
+                    <h:inputText id="dtfinal" value="#{projetoController.selected.dtfinal}" title="#{bundle.EditProjetoTitle_dtfinal}" />
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{projetoController.selected.descricao}" title="#{bundle.EditProjetoTitle_descricao}" />
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_titulo}" for="titulo" />
+                    <h:inputText id="titulo" value="#{projetoController.selected.titulo}" title="#{bundle.EditProjetoTitle_titulo}" />
+                    <h:outputLabel value="#{bundle.EditProjetoLabel_horasprojeto}" for="horasprojeto" />
+                    <h:inputText id="horasprojeto" value="#{projetoController.selected.horasprojeto}" title="#{bundle.EditProjetoTitle_horasprojeto}" />
+                </h:panelGrid>
+                <h:commandLink action="#{projetoController.update}" value="#{bundle.EditProjetoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProjetoViewLink}"/>
+                <br />
+                <h:commandLink action="#{projetoController.prepareList}" value="#{bundle.EditProjetoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProjetoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
