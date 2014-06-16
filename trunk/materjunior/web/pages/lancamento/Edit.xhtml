@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLancamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLancamentoLabel_idlancamento}" for="idlancamento" />
+                    <h:inputText id="idlancamento" value="#{lancamentoController.selected.idlancamento}" title="#{bundle.EditLancamentoTitle_idlancamento}" required="true" requiredMessage="#{bundle.EditLancamentoRequiredMessage_idlancamento}"/>
+                    <h:outputLabel value="#{bundle.EditLancamentoLabel_idprojeto}" for="idprojeto" />
+                    <h:inputText id="idprojeto" value="#{lancamentoController.selected.idprojeto}" title="#{bundle.EditLancamentoTitle_idprojeto}" required="true" requiredMessage="#{bundle.EditLancamentoRequiredMessage_idprojeto}"/>
+                    <h:outputLabel value="#{bundle.EditLancamentoLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{lancamentoController.selected.valor}" title="#{bundle.EditLancamentoTitle_valor}" />
+                    <h:outputLabel value="#{bundle.EditLancamentoLabel_descricao}" for="descricao" />
+                    <h:inputText id="descricao" value="#{lancamentoController.selected.descricao}" title="#{bundle.EditLancamentoTitle_descricao}" />
+                    <h:outputLabel value="#{bundle.EditLancamentoLabel_debcred}" for="debcred" />
+                    <h:inputText id="debcred" value="#{lancamentoController.selected.debcred}" title="#{bundle.EditLancamentoTitle_debcred}" />
+                </h:panelGrid>
+                <h:commandLink action="#{lancamentoController.update}" value="#{bundle.EditLancamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditLancamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{lancamentoController.prepareList}" value="#{bundle.EditLancamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditLancamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

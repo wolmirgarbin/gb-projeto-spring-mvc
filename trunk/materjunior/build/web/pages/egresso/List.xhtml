@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEgressoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEgressoEmpty}" rendered="#{egressoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{egressoController.items.rowCount > 0}">
+                    <h:outputText value="#{egressoController.pagination.pageFirstItem + 1}..#{egressoController.pagination.pageLastItem + 1}/#{egressoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{egressoController.previous}" value="#{bundle.Previous} #{egressoController.pagination.pageSize}" rendered="#{egressoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{egressoController.next}" value="#{bundle.Next} #{egressoController.pagination.pageSize}" rendered="#{egressoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{egressoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_idegresso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idegresso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_formadoano}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formadoano}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_cidade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cidade}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_idpessoa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpessoa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_localtrabalho}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.localtrabalho}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEgressoTitle_descricao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{egressoController.prepareView}" value="#{bundle.ListEgressoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{egressoController.prepareEdit}" value="#{bundle.ListEgressoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{egressoController.destroy}" value="#{bundle.ListEgressoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{egressoController.prepareCreate}" value="#{bundle.ListEgressoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEgressoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

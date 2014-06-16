@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAlunoprojetoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAlunoprojetoEmpty}" rendered="#{alunoprojetoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{alunoprojetoController.items.rowCount > 0}">
+                    <h:outputText value="#{alunoprojetoController.pagination.pageFirstItem + 1}..#{alunoprojetoController.pagination.pageLastItem + 1}/#{alunoprojetoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{alunoprojetoController.previous}" value="#{bundle.Previous} #{alunoprojetoController.pagination.pageSize}" rendered="#{alunoprojetoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{alunoprojetoController.next}" value="#{bundle.Next} #{alunoprojetoController.pagination.pageSize}" rendered="#{alunoprojetoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{alunoprojetoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoprojetoTitle_idprojeto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprojeto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoprojetoTitle_qtdhoras}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.qtdhoras}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoprojetoTitle_valorrateio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorrateio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlunoprojetoTitle_idpessoa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idpessoa}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{alunoprojetoController.prepareView}" value="#{bundle.ListAlunoprojetoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alunoprojetoController.prepareEdit}" value="#{bundle.ListAlunoprojetoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alunoprojetoController.destroy}" value="#{bundle.ListAlunoprojetoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{alunoprojetoController.prepareCreate}" value="#{bundle.ListAlunoprojetoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAlunoprojetoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

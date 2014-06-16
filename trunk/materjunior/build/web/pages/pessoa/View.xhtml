@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPessoaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPessoaLabel_idpessoa}"/>
+                    <h:outputText value="#{pessoaController.selected.idpessoa}" title="#{bundle.ViewPessoaTitle_idpessoa}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_nome}"/>
+                    <h:outputText value="#{pessoaController.selected.nome}" title="#{bundle.ViewPessoaTitle_nome}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_email}"/>
+                    <h:outputText value="#{pessoaController.selected.email}" title="#{bundle.ViewPessoaTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_dtinicio}"/>
+                    <h:outputText value="#{pessoaController.selected.dtinicio}" title="#{bundle.ViewPessoaTitle_dtinicio}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_dtfinal}"/>
+                    <h:outputText value="#{pessoaController.selected.dtfinal}" title="#{bundle.ViewPessoaTitle_dtfinal}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_trabalhaem}"/>
+                    <h:outputText value="#{pessoaController.selected.trabalhaem}" title="#{bundle.ViewPessoaTitle_trabalhaem}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_tipo}"/>
+                    <h:outputText value="#{pessoaController.selected.tipo}" title="#{bundle.ViewPessoaTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_fone}"/>
+                    <h:outputText value="#{pessoaController.selected.fone}" title="#{bundle.ViewPessoaTitle_fone}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_aniversario}"/>
+                    <h:outputText value="#{pessoaController.selected.aniversario}" title="#{bundle.ViewPessoaTitle_aniversario}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_cpf}"/>
+                    <h:outputText value="#{pessoaController.selected.cpf}" title="#{bundle.ViewPessoaTitle_cpf}"/>
+                    <h:outputText value="#{bundle.ViewPessoaLabel_rg}"/>
+                    <h:outputText value="#{pessoaController.selected.rg}" title="#{bundle.ViewPessoaTitle_rg}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pessoaController.destroyAndView}" value="#{bundle.ViewPessoaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPessoaEditLink}"/>
+                <br />
+                <h:commandLink action="#{pessoaController.prepareCreate}" value="#{bundle.ViewPessoaCreateLink}" />
+                <br />
+                <h:commandLink action="#{pessoaController.prepareList}" value="#{bundle.ViewPessoaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPessoaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

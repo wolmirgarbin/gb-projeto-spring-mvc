@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlunoprojetoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlunoprojetoLabel_idprojeto}" for="idprojeto" />
+                    <h:inputText id="idprojeto" value="#{alunoprojetoController.selected.idprojeto}" title="#{bundle.EditAlunoprojetoTitle_idprojeto}" required="true" requiredMessage="#{bundle.EditAlunoprojetoRequiredMessage_idprojeto}"/>
+                    <h:outputLabel value="#{bundle.EditAlunoprojetoLabel_qtdhoras}" for="qtdhoras" />
+                    <h:inputText id="qtdhoras" value="#{alunoprojetoController.selected.qtdhoras}" title="#{bundle.EditAlunoprojetoTitle_qtdhoras}" />
+                    <h:outputLabel value="#{bundle.EditAlunoprojetoLabel_valorrateio}" for="valorrateio" />
+                    <h:inputText id="valorrateio" value="#{alunoprojetoController.selected.valorrateio}" title="#{bundle.EditAlunoprojetoTitle_valorrateio}" />
+                    <h:outputLabel value="#{bundle.EditAlunoprojetoLabel_idpessoa}" for="idpessoa" />
+                    <h:inputText id="idpessoa" value="#{alunoprojetoController.selected.idpessoa}" title="#{bundle.EditAlunoprojetoTitle_idpessoa}" required="true" requiredMessage="#{bundle.EditAlunoprojetoRequiredMessage_idpessoa}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{alunoprojetoController.update}" value="#{bundle.EditAlunoprojetoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlunoprojetoViewLink}"/>
+                <br />
+                <h:commandLink action="#{alunoprojetoController.prepareList}" value="#{bundle.EditAlunoprojetoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlunoprojetoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

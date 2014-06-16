@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListProjetoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListProjetoEmpty}" rendered="#{projetoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{projetoController.items.rowCount > 0}">
+                    <h:outputText value="#{projetoController.pagination.pageFirstItem + 1}..#{projetoController.pagination.pageLastItem + 1}/#{projetoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{projetoController.previous}" value="#{bundle.Previous} #{projetoController.pagination.pageSize}" rendered="#{projetoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{projetoController.next}" value="#{bundle.Next} #{projetoController.pagination.pageSize}" rendered="#{projetoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{projetoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_idprojeto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprojeto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_idcliente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcliente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_dtinicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dtinicio}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_dtfinal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dtfinal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_descricao}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_titulo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.titulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetoTitle_horasprojeto}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horasprojeto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{projetoController.prepareView}" value="#{bundle.ListProjetoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{projetoController.prepareEdit}" value="#{bundle.ListProjetoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{projetoController.destroy}" value="#{bundle.ListProjetoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{projetoController.prepareCreate}" value="#{bundle.ListProjetoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListProjetoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
