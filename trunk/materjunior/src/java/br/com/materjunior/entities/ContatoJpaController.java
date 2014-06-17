@@ -34,15 +34,13 @@ public class ContatoJpaController implements Serializable {
 
     public void create(Contato contato) throws PreexistingEntityException, Exception {
         EntityManager em = null;
+        contato.setIdcontato(null);
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(contato);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findContato(contato.getIdcontato()) != null) {
-                throw new PreexistingEntityException("Contato " + contato + " already exists.", ex);
-            }
             throw ex;
         } finally {
             if (em != null) {

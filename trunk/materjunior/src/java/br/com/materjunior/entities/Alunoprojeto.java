@@ -44,7 +44,7 @@ public class Alunoprojeto implements Serializable {
     private Long valorrateio;
     @Basic(optional = false)
     @Column(name = "IDPESSOA")
-    private int idpessoa;
+    private Integer idpessoa;
 
     public Alunoprojeto() {
     }
@@ -82,11 +82,11 @@ public class Alunoprojeto implements Serializable {
         this.valorrateio = valorrateio;
     }
 
-    public int getIdpessoa() {
+    public Integer getIdpessoa() {
         return idpessoa;
     }
 
-    public void setIdpessoa(int idpessoa) {
+    public void setIdpessoa(Integer idpessoa) {
         this.idpessoa = idpessoa;
     }
 

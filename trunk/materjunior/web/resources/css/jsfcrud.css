@@ -1,4 +1,4 @@
-root { 
+/*root { 
     display: block;
 }
 
@@ -9,9 +9,9 @@ body {
     font-size: small;
 }
 
-/*a {
+a {
     color: #e33b06;
-}*/
+}
 
 table {
     empty-cells: show;
@@ -79,4 +79,4 @@ tr.jsfcrud_even_row {
     position: absolute;
     left: 50%;
     top: 50%;
-}
+}*/

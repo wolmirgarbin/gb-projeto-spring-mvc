@@ -46,27 +46,36 @@ public class Usuario implements Serializable {
     @Column(name = "IDUSUARIO")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer idusuario;
-    @Basic(optional = false)
+    
+    //@Basic(optional = false)
     @Column(name = "IDPESSOA")
-    private int idpessoa;
-    @Basic(optional = false)
+    private Integer idpessoa;
+    
+    //@Basic(optional = false)
     @Column(name = "ROLE")
     private String role;
-    @Basic(optional = false)
+    
+    //@Basic(optional = false)
     @Column(name = "USUARIO")
     private String usuario;
-    @Basic(optional = false)
+    
+    //@Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
+    
     @Column(name = "DTCAD")
     @Temporal(TemporalType.DATE)
     private Date dtcad;
+    
     @Column(name = "DTINATIVO")
     @Temporal(TemporalType.DATE)
     private Date dtinativo;
+    
     @Column(name = "CADASTRADOPOR")
     private Integer cadastradopor;
 
+    
+    
     public Usuario() {
     }
 
@@ -90,11 +99,11 @@ public class Usuario implements Serializable {
         this.idusuario = idusuario;
     }
 
-    public int getIdpessoa() {
+    public Integer getIdpessoa() {
         return idpessoa;
     }
 
-    public void setIdpessoa(int idpessoa) {
+    public void setIdpessoa(Integer idpessoa) {
         this.idpessoa = idpessoa;
     }
 
