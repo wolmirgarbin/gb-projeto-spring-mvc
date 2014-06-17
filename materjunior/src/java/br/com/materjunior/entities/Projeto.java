@@ -46,7 +46,7 @@ public class Projeto implements Serializable {
     private Integer idprojeto;
     @Basic(optional = false)
     @Column(name = "IDCLIENTE")
-    private int idcliente;
+    private Integer idcliente;
     @Column(name = "DTINICIO")
     @Temporal(TemporalType.DATE)
     private Date dtinicio;
@@ -79,11 +79,11 @@ public class Projeto implements Serializable {
         this.idprojeto = idprojeto;
     }
 
-    public int getIdcliente() {
+    public Integer getIdcliente() {
         return idcliente;
     }
 
-    public void setIdcliente(int idcliente) {
+    public void setIdcliente(Integer idcliente) {
         this.idcliente = idcliente;
     }
 

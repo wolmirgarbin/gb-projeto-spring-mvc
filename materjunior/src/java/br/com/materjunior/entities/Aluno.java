@@ -32,17 +32,21 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Aluno.findByDtfim", query = "SELECT a FROM Aluno a WHERE a.dtfim = :dtfim"),
     @NamedQuery(name = "Aluno.findByIdpessoa", query = "SELECT a FROM Aluno a WHERE a.idpessoa = :idpessoa")})
 public class Aluno implements Serializable {
+    
     private static final long serialVersionUID = 1L;
-    @Column(name = "DTINICIO")
-    @Temporal(TemporalType.DATE)
-    private Date dtinicio;
-    @Column(name = "DTFIM")
-    @Temporal(TemporalType.DATE)
-    private Date dtfim;
+    
     @Id
     @Basic(optional = false)
     @Column(name = "IDPESSOA")
     private Integer idpessoa;
+    
+    @Column(name = "DTINICIO")
+    @Temporal(TemporalType.DATE)
+    private Date dtinicio;
+    
+    @Column(name = "DTFIM")
+    @Temporal(TemporalType.DATE)
+    private Date dtfim;
 
     public Aluno() {
     }

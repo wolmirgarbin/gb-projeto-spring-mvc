@@ -75,7 +75,7 @@ public class Cliente implements Serializable {
     private String descricao;
     @Basic(optional = false)
     @Column(name = "IDCONTATO")
-    private long idcontato;
+    private Long idcontato;
 
     public Cliente() {
     }
@@ -193,11 +193,11 @@ public class Cliente implements Serializable {
         this.descricao = descricao;
     }
 
-    public long getIdcontato() {
+    public Long getIdcontato() {
         return idcontato;
     }
 
-    public void setIdcontato(long idcontato) {
+    public void setIdcontato(Long idcontato) {
         this.idcontato = idcontato;
     }
 

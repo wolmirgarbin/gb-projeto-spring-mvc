@@ -41,7 +41,7 @@ public class Lancamento implements Serializable {
     private Integer idlancamento;
     @Basic(optional = false)
     @Column(name = "IDPROJETO")
-    private int idprojeto;
+    private Integer idprojeto;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "VALOR")
     private Double valor;
@@ -57,7 +57,7 @@ public class Lancamento implements Serializable {
         this.idlancamento = idlancamento;
     }
 
-    public Lancamento(Integer idlancamento, int idprojeto) {
+    public Lancamento(Integer idlancamento, Integer idprojeto) {
         this.idlancamento = idlancamento;
         this.idprojeto = idprojeto;
     }
@@ -70,11 +70,11 @@ public class Lancamento implements Serializable {
         this.idlancamento = idlancamento;
     }
 
-    public int getIdprojeto() {
+    public Integer getIdprojeto() {
         return idprojeto;
     }
 
-    public void setIdprojeto(int idprojeto) {
+    public void setIdprojeto(Integer idprojeto) {
         this.idprojeto = idprojeto;
     }
 

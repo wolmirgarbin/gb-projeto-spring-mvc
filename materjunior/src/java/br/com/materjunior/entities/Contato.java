@@ -33,18 +33,23 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Contato.findByFone", query = "SELECT c FROM Contato c WHERE c.fone = :fone"),
     @NamedQuery(name = "Contato.findByFuncao", query = "SELECT c FROM Contato c WHERE c.funcao = :funcao")})
 public class Contato implements Serializable {
+    
     private static final long serialVersionUID = 1L;
+    
     @Id
-    @Basic(optional = false)
     @Column(name = "IDCONTATO")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idcontato;
+    
     @Column(name = "NOME")
     private String nome;
+    
     @Column(name = "EMAIL")
     private String email;
+    
     @Column(name = "FONE")
     private String fone;
+    
     @Column(name = "FUNCAO")
     private String funcao;
 

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -19,88 +20,52 @@
                     <h:outputText value="#{pessoaController.pagination.pageFirstItem + 1}..#{pessoaController.pagination.pageLastItem + 1}/#{pessoaController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{pessoaController.previous}" value="#{bundle.Previous} #{pessoaController.pagination.pageSize}" rendered="#{pessoaController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{pessoaController.next}" value="#{bundle.Next} #{pessoaController.pagination.pageSize}" rendered="#{pessoaController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{pessoaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_idpessoa}"/>
-                            </f:facet>
+                    <p:dataTable value="#{pessoaController.items}" var="item" style="border:solid 1px">
+                        <p:column headerText="#{bundle.ListPessoaTitle_idpessoa}">
                             <h:outputText value="#{item.idpessoa}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_nome}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_nome}">
                             <h:outputText value="#{item.nome}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_email}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_email}">
                             <h:outputText value="#{item.email}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_dtinicio}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_dtinicio}">
                             <h:outputText value="#{item.dtinicio}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_dtfinal}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_dtfinal}">
                             <h:outputText value="#{item.dtfinal}">
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </h:outputText>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_trabalhaem}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_trabalhaem}">
                             <h:outputText value="#{item.trabalhaem}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_tipo}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_tipo}">
                             <h:outputText value="#{item.tipo}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_fone}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_fone}">
                             <h:outputText value="#{item.fone}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_aniversario}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_aniversario}">
                             <h:outputText value="#{item.aniversario}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_cpf}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_cpf}">
                             <h:outputText value="#{item.cpf}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListPessoaTitle_rg}"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="#{bundle.ListPessoaTitle_rg}">
                             <h:outputText value="#{item.rg}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
+                        </p:column>
+                        <p:column headerText="">
                             <h:commandLink action="#{pessoaController.prepareView}" value="#{bundle.ListPessoaViewLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{pessoaController.prepareEdit}" value="#{bundle.ListPessoaEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{pessoaController.destroy}" value="#{bundle.ListPessoaDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{pessoaController.prepareCreate}" value="#{bundle.ListPessoaCreateLink}"/>
